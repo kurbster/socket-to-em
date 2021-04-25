@@ -1,9 +1,12 @@
 CXX = g++
 CPPFLAGS = -g -Wall
 
-.PHONY: all server client
+.PHONY: all server client mserver
 
-all: server client
+all: server client mserver
+
+mserver: mult_server.cc
+	$(CXX) $(CPPFLAGS) -o $@ $^
 
 server: server.cc
 	$(CXX) $(CPPFLAGS) -o $@ $^
